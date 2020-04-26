@@ -1,7 +1,22 @@
 .currencyConverterTitle {
   text-align: center;
-  font-family: 'Oswald', sans-serif;
-  background-color: silver;
+  font-family: 'Open Sans Condensed', sans-serif;
+  background-color: rgb(40, 69, 165);
   border-radius: 10px;
-  color: black;
+  color: white;
+}
+
+.inputAmount {
+  border: 1px solid #333;
+  border-radius: 0.3em;
+  padding: 0.25rem;
+  margin-left: 80px;
+}
+
+.selectFromCurrency {
+  border: 1px solid #333;
+  font-weight: bold;
+  border-radius: 0.3em;
+  padding: 0.2rem;
+  margin-left: 10px;
 }
