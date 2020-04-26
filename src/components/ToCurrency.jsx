@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ToCurrency = (props) => {
-  const { keyCurrencies, currentExchangeRate, handleChange } = props
+  const { keyCurrencies, handleChange } = props
 
   keyCurrencies.sort()
 
@@ -16,7 +16,6 @@ const ToCurrency = (props) => {
           return <option key={index}>{option}</option>
         })}
       </select>
-      <p className='exchangeRateText'>Exchange Rate: {currentExchangeRate}</p>
     </div>
   )
 }

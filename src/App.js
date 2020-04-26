@@ -4,6 +4,7 @@ import axios from 'axios'
 import './App.css'
 import FromCurrency from './components/FromCurrency'
 import ToCurrency from './components/ToCurrency'
+import Result from './components/Result'
 
 class App extends Component {
   state = {
@@ -11,8 +12,8 @@ class App extends Component {
     valueCurrencies: [],
     fromCurrency: 'EUR',
     toCurrency: 'AUD',
-    currentExchangeRate: '1.6943',
     amount: 1,
+    result: 0,
   }
 
   componentDidMount() {
@@ -25,9 +26,24 @@ class App extends Component {
 
       this.setState({
         keyCurrencies: baseKey,
-        valueCurrencies: response.data.rates,
       })
     })
+  }
+
+  handleConversion = () => {
+    if (this.state.toCurrency !== this.state.fromCurrency) {
+      axios
+        .get(
+          `https://api.exchangeratesapi.io/latest?base=${this.state.fromCurrency}&symbols=${this.state.toCurrency}`
+        )
+        .then((response) => {
+          const result =
+            this.state.amount * response.data.rates[this.state.toCurrency]
+          this.setState({
+            result: result.toFixed(2),
+          })
+        })
+    }
   }
 
   handleChange = (event) => {
@@ -35,12 +51,11 @@ class App extends Component {
 
     this.setState({
       [name]: value,
-      currentExchangeRate: this.state.valueCurrencies[value],
     })
   }
 
   render() {
-    const { keyCurrencies, currentExchangeRate, amount } = this.state
+    const { keyCurrencies, result, amount } = this.state
 
     return (
       <div className='App'>
@@ -54,8 +69,8 @@ class App extends Component {
         <ToCurrency
           keyCurrencies={keyCurrencies}
           handleChange={this.handleChange}
-          currentExchangeRate={currentExchangeRate}
         />
+        <Result handleConversion={this.handleConversion} result={result} />
       </div>
     )
   }
