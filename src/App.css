@@ -6,6 +6,17 @@
   color: white;
 }
 
+.fromCurrencyFlex {
+  display: flex;
+  flex-direction: row;
+}
+
+.inputDiv {
+  display: block;
+  margin: 0 auto;
+  margin-right: 0;
+}
+
 .inputAmount {
   border: 1px solid #333;
   border-radius: 0.3em;
@@ -19,4 +30,28 @@
   border-radius: 0.3em;
   padding: 0.2rem;
   margin-left: 10px;
+  display: block;
+  margin-right: 565px;
+}
+
+.selectToCurrency {
+  border: 1px solid #333;
+  font-weight: bold;
+  border-radius: 0.3em;
+  padding: 0.2rem;
+  margin-left: 170px;
+}
+
+.exchangeRateText {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: bold;
+  margin-left: 130px;
+  font-size: 20px;
+}
+
+.convertTo {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: bold;
+  margin-left: 190px;
+  font-size: 20px;
 }

@@ -3,11 +3,15 @@ import Header from './components/Header'
 import axios from 'axios'
 import './App.css'
 import FromCurrency from './components/FromCurrency'
+import ToCurrency from './components/ToCurrency'
 
 class App extends Component {
   state = {
     keyCurrencies: [],
+    valueCurrencies: [],
     fromCurrency: 'EUR',
+    toCurrency: 'AUD',
+    currentExchangeRate: '1.6943',
     amount: 1,
   }
 
@@ -21,19 +25,22 @@ class App extends Component {
 
       this.setState({
         keyCurrencies: baseKey,
+        valueCurrencies: response.data.rates,
       })
     })
   }
 
   handleChange = (event) => {
     const { name, value } = event.target
+
     this.setState({
       [name]: value,
+      currentExchangeRate: this.state.valueCurrencies[value],
     })
   }
 
   render() {
-    const { keyCurrencies, amount } = this.state
+    const { keyCurrencies, currentExchangeRate, amount } = this.state
 
     return (
       <div className='App'>
@@ -42,6 +49,12 @@ class App extends Component {
           keyCurrencies={keyCurrencies}
           amount={amount}
           handleChange={this.handleChange}
+        />
+        <p className='convertTo'>TO:</p>
+        <ToCurrency
+          keyCurrencies={keyCurrencies}
+          handleChange={this.handleChange}
+          currentExchangeRate={currentExchangeRate}
         />
       </div>
     )
