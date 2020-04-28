@@ -1,14 +1,22 @@
+.App {
+  display: grid;
+}
+
 .currencyConverterTitle {
   text-align: center;
   font-family: 'Open Sans Condensed', sans-serif;
   background-color: rgb(40, 69, 165);
+  box-shadow: 1px 3px 3px #333;
   border-radius: 10px;
+  max-width: 90%;
   color: white;
+  margin-left: 90px;
 }
 
 .fromCurrencyFlex {
   display: flex;
   flex-direction: row;
+  margin-right: 810px;
 }
 
 .inputDiv {
@@ -21,37 +29,195 @@
   border: 1px solid #333;
   border-radius: 0.3em;
   padding: 0.25rem;
-  margin-left: 80px;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .selectFromCurrency {
   border: 1px solid #333;
+  box-shadow: 2px 2px 2px #333;
   font-weight: bold;
   border-radius: 0.3em;
   padding: 0.2rem;
   margin-left: 10px;
-  display: block;
-  margin-right: 565px;
 }
 
 .selectToCurrency {
   border: 1px solid #333;
+  box-shadow: 2px 2px 2px #333;
   font-weight: bold;
   border-radius: 0.3em;
-  padding: 0.2rem;
-  margin-left: 170px;
+  padding: 7px 30px;
+  margin-left: 890px;
+  margin-bottom: 20px;
 }
 
 .exchangeRateText {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: bold;
-  margin-left: 130px;
-  font-size: 20px;
+  font-size: 25px;
+  text-align: center;
+  margin-right: 10px;
 }
 
 .convertTo {
   font-family: 'Open Sans Condensed', sans-serif;
   font-weight: bold;
-  margin-left: 190px;
   font-size: 20px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.convertBtn {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin-left: 885px;
+  background-color: rgb(40, 69, 165);
+  color: white;
+  border: 2px solid #333;
+  box-shadow: 1px 3px 3px #333;
+  border-radius: 0.5em;
+  padding: 7px 30px;
+}
+
+@media only screen and (max-width: 1679px) {
+  .fromCurrencyFlex {
+    margin-right: 660px;
+    position: sticky;
+  }
+
+  .selectToCurrency {
+    border: 1px solid #333;
+    box-shadow: 2px 2px 2px #333;
+    font-weight: bold;
+    border-radius: 0.3em;
+    padding: 7px 30px;
+    margin-left: 765px;
+    margin-bottom: 20px;
+  }
+
+  .convertBtn {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-left: 790px;
+    background-color: rgb(40, 69, 165);
+    color: white;
+    border: 2px solid #333;
+    box-shadow: 1px 3px 3px #333;
+    border-radius: 0.5em;
+    padding: 7px 30px;
+  }
+
+  .convertTo {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 30px;
+  }
+
+  .exchangeRateText {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+    margin-left: 30px;
+  }
+
+  .convertBtn {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-left: 760px;
+    background-color: rgb(40, 69, 165);
+    color: white;
+    border: 2px solid #333;
+    box-shadow: 1px 3px 3px #333;
+    border-radius: 0.5em;
+    padding: 7px 30px;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .App {
+    display: grid;
+  }
+
+  .currencyConverterTitle {
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    background-color: rgb(40, 69, 165);
+    box-shadow: 1px 3px 3px #333;
+    border-radius: 10px;
+    width: 35%;
+    margin-left: 30px;
+    color: white;
+  }
+
+  .fromCurrencyFlex {
+    display: flex;
+    flex-direction: row;
+    margin-left: 75px;
+  }
+
+  .inputAmount {
+    border: 1px solid #333;
+    border-radius: 0.3em;
+    padding: 0.25rem;
+  }
+
+  .selectFromCurrency {
+    border: 1px solid #333;
+    box-shadow: 2px 2px 2px #333;
+    font-weight: bold;
+    border-radius: 0.3em;
+    padding: 0.2rem;
+    margin-left: 10px;
+    outline: none;
+  }
+
+  .convertTo {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 620px;
+  }
+
+  .selectToCurrency {
+    border: 1px solid #333;
+    box-shadow: 2px 2px 2px #333;
+    font-weight: bold;
+    border-radius: 0.3em;
+    padding: 7px 30px;
+    margin-left: 140px;
+    margin-bottom: 20px;
+    outline: none;
+  }
+
+  .exchangeRateText {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 25px;
+    margin-right: 620px;
+  }
+
+  .convertBtn {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-left: 135px;
+    background-color: rgb(40, 69, 165);
+    color: white;
+    border: 2px solid #333;
+    box-shadow: 1px 3px 3px #333;
+    border-radius: 0.5em;
+    padding: 7px 30px;
+    outline: none;
+  }
 }

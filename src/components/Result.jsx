@@ -5,8 +5,10 @@ const Result = (props) => {
 
   return (
     <div>
-      <button onClick={handleConversion}>Convert</button>
-      <h4>{result}</h4>
+      <h4 className='exchangeRateText'>{result}</h4>
+      <button onClick={handleConversion} className='convertBtn'>
+        Convert
+      </button>
     </div>
   )
 }

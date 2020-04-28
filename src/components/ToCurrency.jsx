@@ -1,9 +1,7 @@
 import React from 'react'
 
 const ToCurrency = (props) => {
-  const { keyCurrencies, handleChange } = props
-
-  keyCurrencies.sort()
+  const { keyCurrencies, toCurrency, handleChange } = props
 
   return (
     <div>
@@ -11,6 +9,7 @@ const ToCurrency = (props) => {
         onChange={handleChange}
         name='toCurrency'
         className='selectToCurrency'
+        value={toCurrency}
       >
         {keyCurrencies.map((option, index) => {
           return <option key={index}>{option}</option>

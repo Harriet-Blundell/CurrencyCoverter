@@ -9,9 +9,8 @@ import Result from './components/Result'
 class App extends Component {
   state = {
     keyCurrencies: [],
-    valueCurrencies: [],
     fromCurrency: 'EUR',
-    toCurrency: 'AUD',
+    toCurrency: 'GBP',
     amount: 1,
     result: 0,
   }
@@ -31,7 +30,7 @@ class App extends Component {
   }
 
   handleConversion = () => {
-    if (this.state.toCurrency !== this.state.fromCurrency) {
+    if (this.state.fromCurrency !== this.state.toCurrency) {
       axios
         .get(
           `https://api.exchangeratesapi.io/latest?base=${this.state.fromCurrency}&symbols=${this.state.toCurrency}`
@@ -43,6 +42,10 @@ class App extends Component {
             result: result.toFixed(2),
           })
         })
+    } else if (this.state.fromCurrency === this.state.toCurrency) {
+      this.setState({
+        result: this.state.amount,
+      })
     }
   }
 
@@ -55,7 +58,13 @@ class App extends Component {
   }
 
   render() {
-    const { keyCurrencies, result, amount } = this.state
+    const {
+      keyCurrencies,
+      fromCurrency,
+      toCurrency,
+      result,
+      amount,
+    } = this.state
 
     return (
       <div className='App'>
@@ -64,11 +73,13 @@ class App extends Component {
           keyCurrencies={keyCurrencies}
           amount={amount}
           handleChange={this.handleChange}
+          fromCurrency={fromCurrency}
         />
         <p className='convertTo'>TO:</p>
         <ToCurrency
           keyCurrencies={keyCurrencies}
           handleChange={this.handleChange}
+          toCurrency={toCurrency}
         />
         <Result handleConversion={this.handleConversion} result={result} />
       </div>

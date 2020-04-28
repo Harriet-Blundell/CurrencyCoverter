@@ -1,7 +1,7 @@
 import React from 'react'
 
 const FromCurrency = (props) => {
-  const { keyCurrencies, amount, handleChange } = props
+  const { keyCurrencies, fromCurrency, amount, handleChange } = props
 
   return (
     <div className='fromCurrencyFlex'>
@@ -19,6 +19,7 @@ const FromCurrency = (props) => {
           onChange={handleChange}
           name='fromCurrency'
           className='selectFromCurrency'
+          value={fromCurrency}
         >
           {keyCurrencies.map((option, index) => {
             return <option key={index}>{option}</option>
